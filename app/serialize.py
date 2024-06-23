@@ -1,7 +1,7 @@
 from model import Book
 from abc import ABC, abstractmethod
 import json
-import xml.etree.ElementTree as ET
+import xml.etree.ElementTree as et
 
 
 class BookSerializer(ABC):
@@ -17,9 +17,9 @@ class JsonSerializer(BookSerializer):
 
 class XmlSerializer(BookSerializer):
     def serialize(self, book: Book) -> str:
-        root = ET.Element("book")
-        title = ET.SubElement(root, "title")
+        root = et.Element("book")
+        title = et.SubElement(root, "title")
         title.text = book.title
-        content = ET.SubElement(root, "content")
+        content = et.SubElement(root, "content")
         content.text = book.content
-        return ET.tostring(root, encoding="unicode")
+        return et.tostring(root, encoding="unicode")
