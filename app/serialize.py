@@ -1,4 +1,4 @@
-from model import Book
+from app.model import Book
 from abc import ABC, abstractmethod
 import json
 import xml.etree.ElementTree as Et
